@@ -3,19 +3,19 @@
 
 ## Contents
 1. [Development](#development)
-  1. [Invoke Locally](#invoke-locally)
-  1. [Developing with tests](#developing-with-tests)
-  1. [With Localhost HTTP](#with-localhost-http)
-  1. [Locally Invoke in Docker](#locally-invoke-in-docker)
-  1. [Run as a service within Allthings Docker dev-env](#run-as-a-service-with-allthings-docker-dev-env)
+    1. [Invoke Locally](#invoke-locally)
+    1. [Developing with tests](#developing-with-tests)
+    1. [With Localhost HTTP](#with-localhost-http)
+    1. [Locally Invoke in Docker](#locally-invoke-in-docker)
+    1. [Run as a service within Allthings Docker dev-env](#run-as-a-service-with-allthings-docker-dev-env)
 1. [Deployment](#deployment)
 1. [Invocation](#invocation)
 1. [Logs](#logs)
 1. [Metrics](#metrics)
 1. [How-to](#How-to)
-  1. [Babel](#babel)
-  1. [TypeScript](#typescript)
-  1. [Production Stacktrace](#production-stacktrace)
+    1. [Babel](#babel)
+    1. [TypeScript](#typescript)
+    1. [Production Stacktrace](#production-stacktrace)
 
 
 
