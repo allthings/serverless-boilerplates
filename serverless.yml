@@ -28,6 +28,11 @@ provider:
 plugins:
   - serverless-offline
 
+custom:
+  serverless-offline:
+    babelOptions:
+      presets: ["env"]
+
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -59,7 +64,7 @@ plugins:
 
 functions:
   hello:
-    handler: src/handler.hello
+    handler: dist/handler.hello
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events

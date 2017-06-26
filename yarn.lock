@@ -414,6 +414,27 @@ b64@3.x.x:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/b64/-/b64-3.0.2.tgz#7a9d60466adf7b8de114cbdf651a5fdfcc90894d"
 
+babel-cli@^6.24.1:
+  version "6.24.1"
+  resolved "https://registry.yarnpkg.com/babel-cli/-/babel-cli-6.24.1.tgz#207cd705bba61489b2ea41b5312341cf6aca2283"
+  dependencies:
+    babel-core "^6.24.1"
+    babel-polyfill "^6.23.0"
+    babel-register "^6.24.1"
+    babel-runtime "^6.22.0"
+    commander "^2.8.1"
+    convert-source-map "^1.1.0"
+    fs-readdir-recursive "^1.0.0"
+    glob "^7.0.0"
+    lodash "^4.2.0"
+    output-file-sync "^1.1.0"
+    path-is-absolute "^1.0.0"
+    slash "^1.0.0"
+    source-map "^0.5.0"
+    v8flags "^2.0.10"
+  optionalDependencies:
+    chokidar "^1.6.1"
+
 babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.22.0.tgz#027620bee567a88c32561574e7fd0801d33118e4"
@@ -1190,7 +1211,7 @@ chalk@^1.0.0, chalk@^1.1.0, chalk@^1.1.1, chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chokidar@^1.4.2:
+chokidar@^1.4.2, chokidar@^1.6.1:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
   dependencies:
@@ -1316,7 +1337,7 @@ combined-stream@^1.0.5, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.9.0, commander@^2.x:
+commander@^2.8.1, commander@^2.9.0, commander@^2.x:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.10.0.tgz#e1f5d3245de246d1a5ca04702fa1ad1bd7e405fe"
   dependencies:
@@ -2205,6 +2226,10 @@ fs-extra@^0.26.7:
     path-is-absolute "^1.0.0"
     rimraf "^2.2.8"
 
+fs-readdir-recursive@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/fs-readdir-recursive/-/fs-readdir-recursive-1.0.0.tgz#8cd1745c8b4f8a29c8caec392476921ba195f560"
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
@@ -2374,7 +2399,7 @@ got@^6.3.0, got@^6.7.1:
     unzip-response "^2.0.1"
     url-parse-lax "^1.0.0"
 
-graceful-fs@^4.1.0, graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
+graceful-fs@^4.1.0, graceful-fs@^4.1.10, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
@@ -2917,7 +2942,7 @@ istanbul-lib-hook@^1.0.7:
   dependencies:
     append-transform "^0.4.0"
 
-istanbul-lib-instrument@^1.7.2:
+istanbul-lib-instrument@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/istanbul-lib-instrument/-/istanbul-lib-instrument-1.7.3.tgz#925b239163eabdd68cc4048f52c2fa4f899ecfa7"
   dependencies:
@@ -3616,9 +3641,9 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-nyc@^11.0.2:
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/nyc/-/nyc-11.0.2.tgz#9e592a697186028253b668516c38f079c39c08f3"
+nyc@^11.0.3:
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/nyc/-/nyc-11.0.3.tgz#0c28bc669a851621709bf7a08503034bee3812b6"
   dependencies:
     archy "^1.0.0"
     arrify "^1.0.1"
@@ -3632,7 +3657,7 @@ nyc@^11.0.2:
     glob "^7.0.6"
     istanbul-lib-coverage "^1.1.1"
     istanbul-lib-hook "^1.0.7"
-    istanbul-lib-instrument "^1.7.2"
+    istanbul-lib-instrument "^1.7.3"
     istanbul-lib-report "^1.1.1"
     istanbul-lib-source-maps "^1.2.1"
     istanbul-reports "^1.1.1"
@@ -3643,7 +3668,7 @@ nyc@^11.0.2:
     resolve-from "^2.0.0"
     rimraf "^2.5.4"
     signal-exit "^3.0.1"
-    spawn-wrap "^1.3.6"
+    spawn-wrap "^1.3.7"
     test-exclude "^4.1.1"
     yargs "^8.0.1"
     yargs-parser "^5.0.0"
@@ -3742,6 +3767,14 @@ osenv@^0.1.4:
   dependencies:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
+
+output-file-sync@^1.1.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/output-file-sync/-/output-file-sync-1.1.2.tgz#d0a33eefe61a205facb90092e826598d5245ce76"
+  dependencies:
+    graceful-fs "^4.1.4"
+    mkdirp "^0.5.1"
+    object-assign "^4.1.0"
 
 p-finally@^1.0.0:
   version "1.0.0"
@@ -4444,9 +4477,9 @@ serverless-offline@^3.14.2:
     lodash "^4.17.4"
     velocityjs "^0.9.3"
 
-serverless@^1.16.0:
-  version "1.16.0"
-  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.16.0.tgz#c99ba908f597024111a7c4202aa2d3ec7bdb29f3"
+serverless@^1.16.1:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/serverless/-/serverless-1.16.1.tgz#070d2638890c5418bea74ce6e9fcaa09ebe8dc38"
   dependencies:
     apollo-client "^1.4.2"
     archiver "^1.1.0"
@@ -4559,7 +4592,7 @@ spawn-sync@^1.0.15:
     concat-stream "^1.4.7"
     os-shim "^0.1.2"
 
-spawn-wrap@^1.3.6:
+spawn-wrap@^1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/spawn-wrap/-/spawn-wrap-1.3.7.tgz#beb8bf4426d64b2b06871e0d7dee2643f1f8d1bc"
   dependencies:
@@ -5004,6 +5037,10 @@ url@0.10.3:
     punycode "1.3.2"
     querystring "0.2.0"
 
+user-home@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/user-home/-/user-home-1.1.1.tgz#2b5be23a32b63a7c9deb8d0f28d485724a3df190"
+
 user-home@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/user-home/-/user-home-2.0.0.tgz#9c70bfd8169bc1dcbf48604e0f04b8b49cde9e9f"
@@ -5025,6 +5062,12 @@ uuid@3.0.1, uuid@^3.0.0:
 uuid@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
+
+v8flags@^2.0.10:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/v8flags/-/v8flags-2.1.1.tgz#aab1a1fa30d45f88dd321148875ac02c0b55e5b4"
+  dependencies:
+    user-home "^1.1.1"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"

@@ -1,4 +1,5 @@
-export function hello (event, context, callback) {
+// eslint-disable-next-line import/prefer-default-export
+export async function hello (event, context, callback) {
   /* For API Gateway response:
   const response = {
     statusCode: 200,

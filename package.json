@@ -12,16 +12,18 @@
     "ava": "ava",
     "lint": "npm run lint:eslint -s",
     "lint:eslint": "eslint src/",
-    "dev:offline":"serverless offline start",
-    "deploy": "SLS_DEBUG=* aws-vault exec allthings -- serverless deploy -v",
+    "dev:offline": "serverless offline start",
+    "build": "babel src/ --out-dir dist/ --ignore spec.js,test.js --source-maps",
+    "deploy": "SLS_DEBUG=* npm run build && aws-vault exec allthings -- serverless deploy -v",
     "logs": "SLS_DEBUG=* aws-vault exec allthings -- serverless logs --function",
     "metrics": "SLS_DEBUG=* aws-vault exec allthings -- serverless metrics",
     "invoke": "SLS_DEBUG=* aws-vault exec allthings -- serverless invoke --function",
-    "invoke:local": "SLS_DEBUG=* aws-vault exec allthings -- serverless invoke local --function",
-    "test:docker": "docker run -v \"$PWD\":/var/task lambci/lambda:nodejs6.10 "
+    "invoke:local": "SLS_DEBUG=* npm run build && aws-vault exec allthings -- serverless invoke local --function",
+    "test:docker": "npm run build && docker run -v \"$PWD\":/var/task lambci/lambda:nodejs6.10 "
   },
   "devDependencies": {
     "ava": "^0.19.1",
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -38,10 +40,10 @@
     "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-tap": "^2.0.1",
-    "nyc": "^11.0.2",
+    "nyc": "^11.0.3",
     "prettier": "^1.4.4",
     "prettier-eslint": "^6.3.0",
-    "serverless": "^1.16.0",
+    "serverless": "^1.16.1",
     "serverless-offline": "^3.14.2"
   },
   "ava": {
