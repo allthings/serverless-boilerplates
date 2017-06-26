@@ -161,15 +161,15 @@ yarn metrics myFunctionName
 
 ### Babel
 
-Sure.
+Is set up: ES2017, stage-3.
 
-@TODO
 
 ### TypeScript
 
 Easy.
 
 @TODO
+
 
 ### Production Stacktrace
 
