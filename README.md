@@ -2,6 +2,7 @@
 
 
 ## Contents
+1. [Setup](#setup)
 1. [Development](#development)
     1. [Invoke Locally](#invoke-locally)
     1. [Developing with tests](#developing-with-tests)
@@ -17,6 +18,17 @@
     1. [TypeScript](#typescript)
     1. [Production Stacktrace](#production-stacktrace)
 
+
+
+## Setup
+
+Clone it. Yarn it.
+
+```bash
+yarn
+```
+
+Then, make sure to change the service name in `serverless.yml`.
 
 
 ## Development
