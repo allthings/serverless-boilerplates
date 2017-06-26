@@ -90,3 +90,23 @@ yarn deploy -f myFunctionName
 ```
 
 Where `myFunctionName` is defined in the `functions` section of `serverless.yml`.
+
+
+### Stacktrace in Production
+
+Yes.
+
+@TODO.
+
+
+### Babel
+
+Sure.
+
+@TODO
+
+### TypeScript
+
+Easy.
+
+@TODO
