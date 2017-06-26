@@ -18,7 +18,7 @@
     1. [Babel](#babel)
     1. [TypeScript](#typescript)
     1. [Production Stacktrace](#production-stacktrace)
-
+    1. [Native Node Modules](#native-node-modules)
 
 
 ## Setup
@@ -39,6 +39,8 @@ Yah. You need those.
 @TODO
 
 Any commands which interact with AWS APIs assume your IAM credentials are stored in [aws-vault](https://github.com/99designs/aws-vault), and that the profile is called `allthings`—ideally with MFA enabled.
+
+@TODO: expand on this.
 
 
 ## Development
@@ -172,5 +174,11 @@ Easy.
 ### Production Stacktrace
 
 Yes.
+
+@TODO.
+
+### Native Node Modules
+
+Can do.
 
 @TODO.
