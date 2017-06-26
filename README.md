@@ -3,6 +3,7 @@
 
 ## Contents
 1. [Setup](#setup)
+1. [IAM Credentials, Roles, and Permissions](#iam-credentials-roles-and-permissions)
 1. [Development](#development)
     1. [Invoke Locally](#invoke-locally)
     1. [Developing with tests](#developing-with-tests)
@@ -29,6 +30,15 @@ yarn
 ```
 
 Then, make sure to change the service name in `serverless.yml`.
+
+
+## IAM Credentials, Roles, and Permissions
+
+Yah. You need those.
+
+@TODO
+
+Any commands which interact with AWS APIs assume your IAM credentials are stored in [aws-vault](https://github.com/99designs/aws-vault), and that the profile is called `allthings`—ideally with MFA enabled.
 
 
 ## Development
