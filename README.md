@@ -9,6 +9,14 @@
   1. [Locally Invoke in Docker](#locally-invoke-in-docker)
   1. [Run as a service within Allthings Docker dev-env](#run-as-a-service-with-allthings-docker-dev-env)
 1. [Deployment](#deployment)
+1. [Invocation](#invocation)
+1. [Logs](#logs)
+1. [Metrics](#metrics)
+1. [How-to](#How-to)
+  1. [Babel](#babel)
+  1. [TypeScript](#typescript)
+  1. [Production Stacktrace](#production-stacktrace)
+
 
 
 ## Development
@@ -92,12 +100,40 @@ yarn deploy -f myFunctionName
 Where `myFunctionName` is defined in the `functions` section of `serverless.yml`.
 
 
-### Stacktrace in Production
+## Invocation
 
-Yes.
+To manually invoke the deployed function from your terminal:
 
-@TODO.
+```bash
+yarn invoke myFunctionName --path event-mocks/scheduled-event.json
+```
 
+or
+
+```bash
+yarn invoke myFunctionName --data '{"some": "eventData"}'
+```
+
+
+## Logs
+
+See logs for a function from CloudWatch in your terminal:
+
+```bash
+yarn logs myFunctionName
+```
+
+
+## Metrics
+
+See metrics for a function in your terminal:
+
+```bash
+yarn metrics myFunctionName
+```
+
+
+## How-to
 
 ### Babel
 
@@ -110,3 +146,9 @@ Sure.
 Easy.
 
 @TODO
+
+### Production Stacktrace
+
+Yes.
+
+@TODO.
