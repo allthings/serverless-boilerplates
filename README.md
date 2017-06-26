@@ -1,7 +1,29 @@
 # Serverless development patterns
 
 
+## Contents
+1. [Development](#development)
+  1. [Invoke Locally](#invoke-locally)
+  1. [Developing with tests](#developing-with-tests)
+  1. [With Localhost HTTP](#with-localhost-http)
+  1. [Locally Invoke in Docker](#locally-invoke-in-docker)
+  1. [Run as a service within Allthings Docker dev-env](#run-as-a-service-with-allthings-docker-dev-env)
+1. [Deployment](#deployment)
+
+
 ## Development
+
+### Invoke Locally:
+
+```bash
+yarn invoke:local myFunctionName --path event-mocks/scheduled-event.json
+```
+
+or
+
+```bash
+yarn invoke:local myFunctionName --data '{"some": "eventData"}'
+```
 
 ### Developing with tests
 
@@ -9,7 +31,17 @@
 yarn watch:test
 ```
 
-Then, develop and run code via tests.
+Then, develop and run code via tests. See [src/handler.js](blob/master/src/handler.js) and [src/handler.test.js](blob/master/src/handler.test.js) for examples.
+
+
+### With Localhost HTTP
+
+```bash
+yarn dev:offline
+```
+
+Uses [serverless-offline](https://github.com/dherault/serverless-offline)
+
 
 
 ### Locally Invoke in Docker
@@ -30,26 +62,17 @@ const lambdaCallbackResult = dockerLambda({
 })
 ```
 
-### With serverless-offline (when using API Gateway)
+### Run as a service within Allthings Docker dev-env
+
+ lol. todo.
 
 ```bash
-yarn dev
+allthings-up
 ```
 
-Uses [serverless-offline](https://github.com/dherault/serverless-offline)
+Then, access on `https://lambda.dev.allthings.me/dev/myFunctionName`
 
-
-### Invoke Locally:
-
-```bash
-yarn invoke:local myFunctionName --path event-mocks/scheduled-event.json
-```
-
-or
-
-```bash
-yarn invoke:local myFunctionName --data '{"some": "eventData"}'
-```
+Just kidding. @TODO. lol.
 
 
 ## Deployment

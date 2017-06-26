@@ -12,7 +12,7 @@
     "ava": "ava",
     "lint": "npm run lint:eslint -s",
     "lint:eslint": "eslint src/",
-    "dev":"serverless offline start",
+    "dev:offline":"serverless offline start",
     "deploy": "SLS_DEBUG=* aws-vault exec allthings -- serverless deploy -v",
     "logs": "SLS_DEBUG=* aws-vault exec allthings -- serverless logs --function",
     "metrics": "SLS_DEBUG=* aws-vault exec allthings -- serverless metrics",
