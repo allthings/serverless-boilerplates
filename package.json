@@ -15,6 +15,7 @@
     "dev:offline": "serverless offline start",
     "build": "rm -Rf dist/ && babel src/ --out-dir dist/ --ignore spec.js,test.js --source-maps",
     "deploy": "npm run build && aws-vault exec allthings -- serverless deploy -v",
+    "withdraw": "aws-vault exec allthings -- serverless remove -v",
     "logs": "aws-vault exec allthings -- serverless logs --function",
     "metrics": "aws-vault exec allthings -- serverless metrics",
     "invoke": "aws-vault exec allthings -- serverless invoke --function",
