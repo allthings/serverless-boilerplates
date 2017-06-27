@@ -1,5 +1,5 @@
 {
-  "name": "serverless-demo",
+  "name": "allthings-lambda-serverless-boilerplate",
   "version": "1.0.0",
   "main": "index.js",
   "engines": {
@@ -14,11 +14,11 @@
     "lint:eslint": "eslint src/",
     "dev:offline": "serverless offline start",
     "build": "rm -Rf dist/ && babel src/ --out-dir dist/ --ignore spec.js,test.js --source-maps",
-    "deploy": "SLS_DEBUG=* npm run build && aws-vault exec allthings -- serverless deploy -v",
-    "logs": "SLS_DEBUG=* aws-vault exec allthings -- serverless logs --function",
-    "metrics": "SLS_DEBUG=* aws-vault exec allthings -- serverless metrics",
-    "invoke": "SLS_DEBUG=* aws-vault exec allthings -- serverless invoke --function",
-    "invoke:local": "SLS_DEBUG=* npm run build && aws-vault exec allthings -- serverless invoke local --function",
+    "deploy": "npm run build && aws-vault exec allthings -- serverless deploy -v",
+    "logs": "aws-vault exec allthings -- serverless logs --function",
+    "metrics": "aws-vault exec allthings -- serverless metrics",
+    "invoke": "aws-vault exec allthings -- serverless invoke --function",
+    "invoke:local": "npm run build && aws-vault exec allthings -- serverless invoke local --function",
     "test:docker": "npm run build && docker run -v \"$PWD\":/var/task lambci/lambda:nodejs6.10 "
   },
   "devDependencies": {

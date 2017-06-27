@@ -16,7 +16,7 @@
 1. [Logs](#logs)
 1. [Metrics](#metrics)
 1. [How-to](#How-to)
-    1. [Babel](#babel)
+    1. [ES2017](#babel)
     1. [TypeScript](#typescript)
     1. [Production Stacktrace](#production-stacktrace)
     1. [Native Node Modules](#native-node-modules)
@@ -177,9 +177,9 @@ yarn metrics myFunctionName
 
 ## How-to
 
-### Babel
+### ES2017
 
-Is set up: ES2017, stage-3.
+Supported via Babel: ES2017, stage-3.
 
 
 ### TypeScript
