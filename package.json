@@ -13,7 +13,7 @@
     "lint": "npm run lint:eslint -s",
     "lint:eslint": "eslint src/",
     "dev:offline": "serverless offline start",
-    "build": "babel src/ --out-dir dist/ --ignore spec.js,test.js --source-maps",
+    "build": "rm -Rf dist/ && babel src/ --out-dir dist/ --ignore spec.js,test.js --source-maps",
     "deploy": "SLS_DEBUG=* npm run build && aws-vault exec allthings -- serverless deploy -v",
     "logs": "SLS_DEBUG=* aws-vault exec allthings -- serverless logs --function",
     "metrics": "SLS_DEBUG=* aws-vault exec allthings -- serverless metrics",

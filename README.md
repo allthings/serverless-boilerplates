@@ -2,6 +2,7 @@
 
 
 ## Contents
+1. [Prerequisites](#prerequisites)
 1. [Setup](#setup)
 1. [IAM Credentials, Roles, and Permissions](#iam-credentials-roles-and-permissions)
 1. [Development](#development)
@@ -21,6 +22,15 @@
     1. [Native Node Modules](#native-node-modules)
 
 
+## Prerequisites
+
+You will need:
+
+- An AWS IAM user account included in the `arn:aws:iam::799212276699:role/aws-lambda-basic-execution-role` role.
+    - The account must have MFA enabled
+- You will need [AWS Vault](https://github.com/99designs/aws-vault)
+    - Your AWS credentials need to be in a profile called `allthings`
+
 ## Setup
 
 Clone it. Yarn it.
@@ -38,9 +48,17 @@ Yah. You need those.
 
 @TODO
 
-Any commands which interact with AWS APIs assume your IAM credentials are stored in [aws-vault](https://github.com/99designs/aws-vault), and that the profile is called `allthings`—ideally with MFA enabled.
+Any commands which interact with AWS APIs assume your IAM credentials are stored in [AWS Vault](https://github.com/99designs/aws-vault), and that the profile is called `allthings`—ideally with MFA enabled.
 
 @TODO: expand on this.
+
+You will need to add the following to your `~/.aws/config` file. Create it, if it does not exist.
+
+```ini
+[profile allthings]
+region = eu-west-1
+mfa_serial = arn:aws:iam::799212276699:mfa/your.username
+```
 
 
 ## Development
