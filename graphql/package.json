@@ -12,7 +12,7 @@
     "ava": "ava",
     "lint": "npm run lint:eslint -s",
     "lint:eslint": "eslint src/",
-    "dev:offline": "serverless offline start",
+    "dev:offline": "npm run build && serverless offline start",
     "build": "rm -Rf dist/ && babel src/ --out-dir dist/ --ignore spec.js,test.js --source-maps",
     "deploy": "npm run build && aws-vault exec allthings -- serverless deploy -v",
     "withdraw": "aws-vault exec allthings -- serverless remove -v",
@@ -103,5 +103,10 @@
         "always"
       ]
     }
+  },
+  "dependencies": {
+    "graphql": "^0.10.3",
+    "graphql-server-lambda": "^0.9.0",
+    "graphql-tools": "^1.0.0"
   }
 }

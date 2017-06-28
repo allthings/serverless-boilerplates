@@ -1,4 +1,4 @@
-# Serverless development patterns
+# Allthings Internal Serverless Boilerplate
 
 
 ## Contents
