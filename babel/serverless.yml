@@ -26,7 +26,8 @@ provider:
   role: arn:aws:iam::799212276699:role/aws-lambda-basic-execution-role
 
 plugins:
-  - serverless-offline
+  # - serverless-offline
+  - serverless-plugin-localstack
 
 custom:
   serverless-offline:
@@ -61,6 +62,13 @@ custom:
 #  exclude:
 #    - exclude-me.js
 #    - exclude-me-dir/**
+
+package:
+  include:
+    - dist/**
+  exclude:
+    - .serverless_plugins/**
+    - node_modules/**
 
 functions:
   hello:

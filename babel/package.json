@@ -22,8 +22,9 @@
     "invoke:local": "npm run build && aws-vault exec allthings -- serverless invoke local --function",
     "test:docker": "npm run build && docker run -v \"$PWD\":/var/task lambci/lambda:nodejs6.10 "
   },
+  "dependencies": {},
   "devDependencies": {
-    "ava": "^0.19.1",
+    "ava": "^0.20.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
@@ -38,12 +39,12 @@
     "eslint": "^4.1.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-ava": "^4.2.1",
-    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-import": "^2.6.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-tap": "^2.0.1",
     "nyc": "^11.0.3",
-    "prettier": "^1.4.4",
-    "prettier-eslint": "^6.3.0",
+    "prettier": "^1.5.2",
+    "prettier-eslint": "^6.4.1",
     "serverless": "^1.16.1",
     "serverless-offline": "^3.14.2"
   },
@@ -53,9 +54,7 @@
   },
   "babel": {
     "sourceMaps": "inline",
-    "plugins": [
-      "transform-runtime"
-    ],
+    "plugins": ["transform-runtime"],
     "presets": [
       [
         "env",
@@ -70,38 +69,19 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "plugins": [
-      "ava",
-      "import"
-    ],
-    "extends": [
-      "airbnb-base",
-      "plugin:ava/recommended"
-    ],
+    "plugins": ["ava", "import"],
+    "extends": ["airbnb-base", "plugin:ava/recommended"],
     "settings": {
       "import/parser": "babel-eslint",
       "import/resolve": {
-        "moduleDirectory": [
-          "node_modules",
-          "src",
-          "./"
-        ]
+        "moduleDirectory": ["node_modules", "src", "./"]
       }
     },
     "rules": {
       "no-console": 0,
-      "semi": [
-        "error",
-        "never"
-      ],
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ],
-      "space-before-function-paren": [
-        "error",
-        "always"
-      ]
+      "semi": ["error", "never"],
+      "comma-dangle": ["error", "always-multiline"],
+      "space-before-function-paren": ["error", "always"]
     }
   }
 }

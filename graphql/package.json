@@ -22,6 +22,11 @@
     "invoke:local": "npm run build && aws-vault exec allthings -- serverless invoke local --function",
     "test:docker": "npm run build && docker run -v \"$PWD\":/var/task lambci/lambda:nodejs6.10 "
   },
+  "dependencies": {
+    "graphql": "^0.10.3",
+    "graphql-server-lambda": "^0.9.0",
+    "graphql-tools": "^1.0.0"
+  },
   "devDependencies": {
     "ava": "^0.19.1",
     "babel-cli": "^6.24.1",
@@ -53,9 +58,7 @@
   },
   "babel": {
     "sourceMaps": "inline",
-    "plugins": [
-      "transform-runtime"
-    ],
+    "plugins": ["transform-runtime"],
     "presets": [
       [
         "env",
@@ -70,43 +73,19 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "plugins": [
-      "ava",
-      "import"
-    ],
-    "extends": [
-      "airbnb-base",
-      "plugin:ava/recommended"
-    ],
+    "plugins": ["ava", "import"],
+    "extends": ["airbnb-base", "plugin:ava/recommended"],
     "settings": {
       "import/parser": "babel-eslint",
       "import/resolve": {
-        "moduleDirectory": [
-          "node_modules",
-          "src",
-          "./"
-        ]
+        "moduleDirectory": ["node_modules", "src", "./"]
       }
     },
     "rules": {
       "no-console": 0,
-      "semi": [
-        "error",
-        "never"
-      ],
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ],
-      "space-before-function-paren": [
-        "error",
-        "always"
-      ]
+      "semi": ["error", "never"],
+      "comma-dangle": ["error", "always-multiline"],
+      "space-before-function-paren": ["error", "always"]
     }
-  },
-  "dependencies": {
-    "graphql": "^0.10.3",
-    "graphql-server-lambda": "^0.9.0",
-    "graphql-tools": "^1.0.0"
   }
 }
