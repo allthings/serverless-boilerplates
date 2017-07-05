@@ -77,11 +77,18 @@ yarn invoke:local myFunctionName --data '{"some": "eventData"}'
 
 ### Developing with tests
 
+
 ```bash
 yarn watch:test
 ```
 
 Then, develop and run code via tests. See [src/handler.js](blob/master/src/handler.js) and [src/handler.test.js](blob/master/src/handler.test.js) for examples.
+
+You can also run the full test suite with coverage report:
+
+```bash
+yarn test
+```
 
 
 ### With Localhost HTTP
