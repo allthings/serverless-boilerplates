@@ -186,21 +186,20 @@ yarn metrics myFunctionName
 
 ### ES2017
 
-Supported via Babel: ES2017, stage-3.
+Yep. Check out the Babel [recipe](./tree/master/babel).
 
 
 ### TypeScript
 
-Easy.
-
-@TODO
+No problem. Check out the Typescript [recipe](./tree/master/typescript).
 
 
 ### Production Stacktrace
 
-Yes.
+Yes. Both the [Babel](./tree/master/babel) and [Typescript](./tree/master/typescript) recipes support this.
 
-@TODO.
+Haha. Just kidding. @TODO.
+
 
 ### Native Node Modules
 
