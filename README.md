@@ -15,7 +15,7 @@
 1. [Invocation](#invocation)
 1. [Logs](#logs)
 1. [Metrics](#metrics)
-1. [How-to](#How-to)
+1. [How-to](#how-to)
     1. [ES2017](#babel)
     1. [TypeScript](#typescript)
     1. [Production Stacktrace](#production-stacktrace)
