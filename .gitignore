@@ -8,3 +8,5 @@ jspm_packages
 node_modules
 build
 dist
+
+.nyc_output
