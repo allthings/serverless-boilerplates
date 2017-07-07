@@ -14,7 +14,8 @@
     "lint:eslint": "eslint src/",
     "dev:offline": "serverless offline start",
     "build": "rm -Rf dist/ && babel src/ --out-dir dist/ --ignore spec.js,test.js --source-maps",
-    "deploy": "npm run build && aws-vault exec allthings -- serverless deploy -v",
+    "predeploy": "npm run build",
+    "deploy": "aws-vault exec allthings -- serverless deploy -v",
     "withdraw": "aws-vault exec allthings -- serverless remove -v",
     "logs": "aws-vault exec allthings -- serverless logs --function",
     "metrics": "aws-vault exec allthings -- serverless metrics",
@@ -23,7 +24,7 @@
     "test:docker": "npm run build && docker run -v \"$PWD\":/var/task lambci/lambda:nodejs6.10 "
   },
   "devDependencies": {
-    "ava": "^0.19.1",
+    "ava": "^0.20.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",

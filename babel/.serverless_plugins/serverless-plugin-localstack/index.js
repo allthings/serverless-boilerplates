@@ -1,6 +1,8 @@
 // improvements
 // - don't use global AWS, use it from awsProvider.
 // - set default host for endpoint
+// - set AWS env vars if not set to dummy ones for localstack https://github.com/temyers/serverless-localstack/issues/6
+// - enable/disable with a flag instead of just doing it globally? (right now you have to update the config to deploy to prod)
 
 'use strict'
 const Promise = require('bluebird')

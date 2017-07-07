@@ -14,7 +14,8 @@
     "lint:eslint": "eslint src/",
     "dev:offline": "serverless offline start",
     "build": "rm -Rf dist/ && babel src/ --out-dir dist/ --ignore spec.js,test.js --source-maps",
-    "deploy": "npm run build && aws-vault exec allthings -- serverless deploy -v",
+    "predeploy": "npm run build",
+    "deploy": "aws-vault exec allthings -- serverless deploy -v",
     "withdraw": "aws-vault exec allthings -- serverless remove -v",
     "logs": "aws-vault exec allthings -- serverless logs --function",
     "metrics": "aws-vault exec allthings -- serverless metrics",
@@ -53,9 +54,7 @@
   },
   "babel": {
     "sourceMaps": "inline",
-    "plugins": [
-      "transform-runtime"
-    ],
+    "plugins": ["transform-runtime"],
     "presets": [
       [
         "env",
@@ -70,38 +69,19 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "plugins": [
-      "ava",
-      "import"
-    ],
-    "extends": [
-      "airbnb-base",
-      "plugin:ava/recommended"
-    ],
+    "plugins": ["ava", "import"],
+    "extends": ["airbnb-base", "plugin:ava/recommended"],
     "settings": {
       "import/parser": "babel-eslint",
       "import/resolve": {
-        "moduleDirectory": [
-          "node_modules",
-          "src",
-          "./"
-        ]
+        "moduleDirectory": ["node_modules", "src", "./"]
       }
     },
     "rules": {
       "no-console": 0,
-      "semi": [
-        "error",
-        "never"
-      ],
-      "comma-dangle": [
-        "error",
-        "always-multiline"
-      ],
-      "space-before-function-paren": [
-        "error",
-        "always"
-      ]
+      "semi": ["error", "never"],
+      "comma-dangle": ["error", "always-multiline"],
+      "space-before-function-paren": ["error", "always"]
     }
   }
 }

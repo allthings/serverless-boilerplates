@@ -12,6 +12,7 @@ export function hello (event, context, callback) {
 
   const response = {
     foo: 'bar',
+    dateTime: new Date().toISOString(),
   }
 
   callback(null, response)

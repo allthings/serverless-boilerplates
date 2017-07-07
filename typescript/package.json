@@ -14,7 +14,8 @@
     "lint:eslint": "eslint src/",
     "dev:offline": "serverless offline start",
     "build": "rm -Rf dist/ && babel src/ --out-dir dist/ --ignore spec.js,test.js --source-maps",
-    "deploy": "npm run build && aws-vault exec allthings -- serverless deploy -v",
+    "predeploy": "npm run build",
+    "deploy": "aws-vault exec allthings -- serverless deploy -v",
     "withdraw": "aws-vault exec allthings -- serverless remove -v",
     "logs": "aws-vault exec allthings -- serverless logs --function",
     "metrics": "aws-vault exec allthings -- serverless metrics",
@@ -25,13 +26,13 @@
   "devDependencies": {
     "@types/aws-lambda": "^0.0.14",
     "@types/core-js": "^0.9.42",
-    "ava": "^0.19.1",
+    "ava": "^0.20.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.23.0",
-    "babel-preset-env": "^1.5.2",
+    "babel-preset-env": "^1.6.0",
     "babel-preset-stage-3": "^6.24.1",
     "babel-register": "^6.24.1",
     "babel-runtime": "^6.23.0",
@@ -40,14 +41,14 @@
     "eslint": "^4.1.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-ava": "^4.2.1",
-    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-tap": "^2.0.1",
     "nyc": "^11.0.3",
     "prettier": "^1.4.4",
-    "prettier-eslint": "^6.3.0",
-    "serverless": "^1.16.1",
-    "serverless-offline": "^3.14.2",
+    "prettier-eslint": "^6.4.2",
+    "serverless": "^1.17.0",
+    "serverless-offline": "^3.15.0",
     "serverless-plugin-typescript": "^0.5.0",
     "typescript": "^2.4.1"
   },
@@ -57,7 +58,9 @@
   },
   "babel": {
     "sourceMaps": "inline",
-    "plugins": ["transform-runtime"],
+    "plugins": [
+      "transform-runtime"
+    ],
     "presets": [
       [
         "env",
@@ -72,19 +75,38 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "plugins": ["ava", "import"],
-    "extends": ["airbnb-base", "plugin:ava/recommended"],
+    "plugins": [
+      "ava",
+      "import"
+    ],
+    "extends": [
+      "airbnb-base",
+      "plugin:ava/recommended"
+    ],
     "settings": {
       "import/parser": "babel-eslint",
       "import/resolve": {
-        "moduleDirectory": ["node_modules", "src", "./"]
+        "moduleDirectory": [
+          "node_modules",
+          "src",
+          "./"
+        ]
       }
     },
     "rules": {
       "no-console": 0,
-      "semi": ["error", "never"],
-      "comma-dangle": ["error", "always-multiline"],
-      "space-before-function-paren": ["error", "always"]
+      "semi": [
+        "error",
+        "never"
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "space-before-function-paren": [
+        "error",
+        "always"
+      ]
     }
   }
 }
