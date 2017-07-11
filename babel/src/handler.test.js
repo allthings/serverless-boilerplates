@@ -1,6 +1,5 @@
 import test from 'ava'
 import { hello } from './handler'
-import AWS from 'aws-sdk'
 
 const testEvent = {
   account: '123456789012',
@@ -22,20 +21,4 @@ test('hello handler', (t) => {
   }
 
   t.notThrows(() => hello(testEvent, testContext, testCallback))
-})
-
-test.skip('haha', async (t) => {
-  const λ = new AWS.Lambda({ region: 'eu-west-1', endpoint: 'http://192.168.99.100:4574/' })
-
-  const params = {
-    FunctionName: 'allthings-lambda-sls-boilerplate-babel-dev-hello' /* required */,
-    ClientContext: 'lol',
-    InvocationType: 'RequestResponse',
-    LogType: 'None',
-    Payload: '{}',
-    Qualifier: '1',
-  }
-
-  const result = await λ.invoke(params).promise()
-  console.log('result', JSON.stringify(result))
 })
