@@ -199,8 +199,6 @@ No problem. Check out the Typescript [recipe](./tree/master/typescript).
 
 Yes. Both the [Babel](./tree/master/babel) and [Typescript](./tree/master/typescript) recipes support this.
 
-Haha. Just kidding. @TODO.
-
 
 ### Native Node Modules
 
@@ -208,6 +206,6 @@ Can do.
 
 @TODO.
 
-### Step functions
+### Step Functions
 
 https://github.com/horike37/serverless-step-functions
