@@ -26,7 +26,8 @@
   "dependencies": {
     "graphql": "^0.10.3",
     "graphql-server-lambda": "^1.0.0",
-    "graphql-tools": "^1.1.0"
+    "graphql-tools": "^1.1.0",
+    "source-map-support": "^0.4.15"
   },
   "devDependencies": {
     "ava": "^0.20.0",
