@@ -20,6 +20,7 @@
     1. [TypeScript](#typescript)
     1. [Production Stacktrace](#production-stacktrace)
     1. [Native Node Modules](#native-node-modules)
+    1. [Step Functions](#step-functions)
 
 
 ## Prerequisites
@@ -129,7 +130,7 @@ allthings-up
 
 Then, access on `https://lambda.dev.allthings.me/dev/myFunctionName`
 
-Just kidding. @TODO. lol.
+Just kidding. @TODO. lol. Doesn't work, yet. Blocked.
 
 
 ## Deployment
@@ -206,3 +207,7 @@ Haha. Just kidding. @TODO.
 Can do.
 
 @TODO.
+
+### Step functions
+
+https://github.com/horike37/serverless-step-functions

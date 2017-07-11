@@ -1,3 +1,5 @@
+import 'source-map-support/register'
+
 // eslint-disable-next-line import/prefer-default-export
 export function hello (event, context, callback) {
   /* For API Gateway response:

@@ -15,7 +15,7 @@ const testEvent = {
 
 const testContext = {}
 
-test.skip('hello handler', (t) => {
+test('hello handler', (t) => {
   const testCallback = (error, response) => {
     t.is(error, null, 'handler callback should not return an error.')
     t.deepEqual(response, { foo: 'bar' })
@@ -24,7 +24,7 @@ test.skip('hello handler', (t) => {
   t.notThrows(() => hello(testEvent, testContext, testCallback))
 })
 
-test('haha', async (t) => {
+test.skip('haha', async (t) => {
   const λ = new AWS.Lambda({ region: 'eu-west-1', endpoint: 'http://192.168.99.100:4574/' })
 
   const params = {
@@ -37,5 +37,5 @@ test('haha', async (t) => {
   }
 
   const result = await λ.invoke(params).promise()
-  console.log('result', result)
+  console.log('result', JSON.stringify(result))
 })

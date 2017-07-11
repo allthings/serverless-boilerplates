@@ -23,7 +23,9 @@
     "invoke:local": "npm run build && aws-vault exec allthings -- serverless invoke local --function",
     "test:docker": "npm run build && docker run -v \"$PWD\":/var/task lambci/lambda:nodejs6.10 "
   },
-  "dependencies": {},
+  "dependencies": {
+    "source-map-support": "^0.4.15"
+  },
   "devDependencies": {
     "ava": "^0.20.0",
     "babel-cli": "^6.24.1",
