@@ -108,5 +108,8 @@
         "always"
       ]
     }
+  },
+  "dependencies": {
+    "source-map-support": "^0.4.15"
   }
 }
