@@ -18,7 +18,7 @@
 1. [How-to](#how-to)
     1. [ES2017](#babel)
     1. [TypeScript](#typescript)
-    1. [Production Stacktrace](#production-stacktrace)
+    1. [Source-mapped Production Stacktrace](#source-mapped-production-stacktrace)
     1. [Native Node Modules](#native-node-modules)
     1. [Step Functions](#step-functions)
 
@@ -195,7 +195,7 @@ Yep. Check out the Babel [recipe](./tree/master/babel).
 No problem. Check out the Typescript [recipe](./tree/master/typescript).
 
 
-### Production Stacktrace
+### Source-mapped Production Stacktrace
 
 Yes. Both the [Babel](./tree/master/babel) and [Typescript](./tree/master/typescript) recipes support this.
 
