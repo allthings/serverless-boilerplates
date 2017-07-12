@@ -12,9 +12,9 @@ plugins:
   - serverless-offline
 
 custom:
-  serverless-offline:
-    babelOptions:
-      presets: ["env"]
+  # serverless-offline:
+  #   babelOptions:
+  #     presets: ["env"]
 
 functions:
   graphql:

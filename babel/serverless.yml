@@ -30,9 +30,9 @@ plugins:
   # - serverless-plugin-localstack
 
 custom:
-  serverless-offline:
-    babelOptions:
-      presets: ["env"]
+  # serverless-offline:
+  #   babelOptions:
+  #     presets: ["env"]
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
