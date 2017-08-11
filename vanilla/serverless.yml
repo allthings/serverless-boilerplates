@@ -24,6 +24,7 @@ provider:
   stage: dev
   region: eu-west-1
   role: arn:aws:iam::799212276699:role/aws-lambda-basic-execution-role
+  deploymentBucket: allthings-lambda-deployments-${self:provider.region}
 
 plugins:
   - serverless-offline
