@@ -1,16 +1,28 @@
 import handler from './handler'
 
-const testEvent = {}
+const testEvent = {
+  body: '{"id":"foobar"}',
+  headers: {
+    'content-type': 'application/json',
+  },
+}
+
 const testContext = {}
 
-function handlerPromise (event = testEvent, context = testContext) {
+// Mock the dynamodb.js file because we don't want to make any actual AWS-SDK calls
+jest.mock('./utils/dynamodb', () => ({
+  getItem: () => ({ foo: 'bar' }),
+  putItem: () => ({}),
+}))
+
+function handlerPromise (event, context = testContext) {
   return new Promise((resolve, reject) =>
     handler(event, context, (error, result) => (error ? reject(error) : resolve(result))))
 }
 
 describe('The handler', () => {
   it('should return an API Gateway-compatible object', async () => {
-    const result = await handlerPromise({})
+    const result = await handlerPromise(testEvent)
 
     expect(result.statusCode).toBeTruthy()
 
