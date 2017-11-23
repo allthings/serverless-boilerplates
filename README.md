@@ -1,4 +1,4 @@
-# Allthings Internal Serverless Boilerplates
+# Serverless Boilerplates
 
 ## Contents
 
