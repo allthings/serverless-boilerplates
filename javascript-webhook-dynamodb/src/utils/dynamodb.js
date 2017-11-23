@@ -31,6 +31,7 @@ export async function getItem (table, key, options = {}) {
     ConsistentRead,
   }
 
+  // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html#get-property
   return (await ddbClient.get(params).promise()).Item
 }
 
@@ -51,5 +52,6 @@ export async function putItem (table, key, options = {}) {
     ConsistentRead,
   }
 
+  // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html#put-property
   return ddbClient.put(params).promise()
 }
