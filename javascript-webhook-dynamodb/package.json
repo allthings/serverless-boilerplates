@@ -1,0 +1,103 @@
+{
+  "name": "serverless-javascript-webhook",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Allthings GmbH",
+  "license": "MIT",
+  "main": "src/handler.js",
+  "config": {
+    "deployProfile": "allthings-deploy"
+  },
+  "scripts": {
+    "test": "jest",
+    "watch:test": "jest --watch",
+    "lint": "npm run lint:eslint -s",
+    "lint:eslint": "eslint --cache --ext .js .",
+    "dev:offline": "serverless offline start",
+    "deploy": " yarn lint && yarn test && STAGE=staging scripts/deploy.sh",
+    "invoke:local": "serverless invoke local --function",
+    "precommit": "lint-staged",
+    "prettier": "prettier-eslint --write",
+    "preversion": "yarn security-check && yarn lint && yarn test",
+    "postversion": "git push --tags origin HEAD && scripts/deploy.sh",
+    "security-check": "nsp",
+    "upgrade-dependencies": "yarn upgrade-interactive --latest --exact"
+  },
+  "dependencies": {
+    "source-map-support": "0.5.0"
+  },
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-eslint": "8.0.2",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-entries": "1.0.0",
+    "babel-plugin-transform-object-rest-spread": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "eslint": "4.11.0",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.8.0",
+    "husky": "0.14.3",
+    "jest": "21.2.1",
+    "lint-staged": "5.0.0",
+    "nsp": "3.1.0",
+    "prettier-eslint": "^8.2.2",
+    "prettier-eslint-cli": "4.4.0",
+    "serverless": "1.24.1",
+    "serverless-webpack": "4.1.0",
+    "webpack": "3.8.1"
+  },
+  "babel": {
+    "sourceMaps": true,
+    "presets": [
+      [
+        "env",
+        {
+          "modules": "commonjs",
+          "targets": {
+            "node": "6.10"
+          },
+          "include": ["es7.object.values", "es7.object.entries"]
+        }
+      ]
+    ],
+    "plugins": ["transform-object-rest-spread", "transform-object-entries"]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "plugins": ["import"],
+    "extends": ["airbnb-base"],
+    "globals": {
+      "describe": true,
+      "expect": true,
+      "it": true
+    },
+    "settings": {
+      "import/parser": "babel-eslint",
+      "import/resolve": {
+        "moduleDirectory": ["node_modules", "src", "./"]
+      }
+    },
+    "rules": {
+      "no-console": 0,
+      "semi": ["error", "never"],
+      "comma-dangle": ["error", "always-multiline"],
+      "space-before-function-paren": ["error", "always"]
+    }
+  },
+  "eslintIgnore": ["node_modules", "coverage"],
+  "prettier": {
+    "eslintIntegration": true,
+    "jsonEnable": true,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
+  "lint-staged": {
+    "*.{js,jsx}": ["yarn prettier", "yarn lint", "git add"]
+  },
+  "jest": {
+    "bail": true,
+    "collectCoverage": true
+  }
+}

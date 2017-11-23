@@ -1,0 +1,46 @@
+service: ${self:custom.package.name}
+
+custom:
+  defaultStage: development
+  defaultEnvironment: development
+  package: ${file(./package.json)}
+  versioning:
+    default: false
+    production: true
+    prerelease: false
+    staging: false
+  xrayTracingMode: Active
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: ${env:STAGE, self:custom.defaultStage}
+  region: eu-west-1
+  role: arn:aws:iam::799212276699:role/aws-lambda-basic-execution-role
+  deploymentBucket: allthings-lambda-deployments-${self:provider.region}
+  versionFunctions: ${self:custom.versioning.${self:provider.stage}, self:custom.versioning.default} 
+  environment: 
+    STAGE: ${self:provider.stage}
+    NODE_ENV: ${env:NODE_ENV, self:custom.defaultEnvironment}
+
+plugins:
+  - serverless-webpack
+
+functions:
+  webhook:
+    description: Booking key proxy thingy
+    memorySize: 512
+    timeout: 30
+    handler: src/handler.default
+    events:
+      - http:
+          path: /webhook
+          method: POST
+
+resources:
+  Resources:
+    # Enable X-Ray tracing on Lambda functions
+    SsrLambdaFunction:
+      Properties:
+        TracingConfig:
+          Mode: ${self:custom.xrayTracingMode}
