@@ -1,9 +1,9 @@
 # Serverless Boilerplates
 
 - [typescript](/typescript/) - Typescript boilerplate
-- [javascript](/javascript/) -Basic AWS Lambda Javascript boilerplate with ES2015+ support
-- [javascript-graphql](/javascript-graphql/) -Basic AWS Lambda GraphQL boilerplate with ES2015+ support
-- [javascript-webhook-dybamodb](/javascript-webhook-dybamodb/) -AWS Lambda / API Gateway Webhook with DynamoDB-persistence and ES2015+ support
+- [javascript](/javascript/) - Basic AWS Lambda Javascript boilerplate with ES2015+ support
+- [javascript-graphql](/javascript-graphql/) - Basic AWS Lambda GraphQL boilerplate with ES2015+ support
+- [javascript-webhook-dybamodb](/javascript-webhook-dybamodb/) - AWS Lambda / API Gateway Webhook with DynamoDB-persistence and ES2015+ support
 
 
 ## Contents
