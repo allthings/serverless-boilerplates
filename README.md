@@ -1,5 +1,11 @@
 # Serverless Boilerplates
 
+- Typescript boilerplate
+- Basic AWS Lambda Javascript boilerplate with ES2015+ support
+- Basic AWS Lambda GraphQL boilerplate with ES2015+ support
+- AWS Lambda / API Gateway Webhook with DynamoDB-persistence and ES2015+ support
+
+
 ## Contents
 
 1. [Prerequisites](#prerequisites)
