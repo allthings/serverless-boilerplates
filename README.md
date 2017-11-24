@@ -16,11 +16,9 @@
    1. [Developing with tests](#developing-with-tests)
    1. [With Localhost HTTP](#with-localhost-http)
    1. [Locally Invoke in Docker](#locally-invoke-in-docker)
-   1. [Run as a service within Docker dev-env](#run-as-a-service-with-docker-dev-env)
 1. [Deployment](#deployment)
 1. [Invocation](#invocation)
 1. [Logs](#logs)
-1. [Metrics](#metrics)
 1. [How-to](#how-to)
    1. [Step Functions](#step-functions)
 
@@ -121,18 +119,6 @@ const lambdaCallbackResult = dockerLambda({
 })
 ```
 
-### Run as a service within Allthings Docker dev-env
-
-lol. todo.
-
-```bash
-allthings-up
-```
-
-Then, access on `https://lambda.dev.allthings.me/dev/myFunctionName`
-
-Just kidding. @TODO. lol. Doesn't work, yet. Blocked.
-
 ## Deployment
 
 Deploy entire service with all functions:
@@ -140,15 +126,6 @@ Deploy entire service with all functions:
 ```bash
 yarn deploy
 ```
-
-Deploy specific function:
-
-```bash
-yarn deploy -f myFunctionName
-```
-
-Where `myFunctionName` is defined in the `functions` section of
-`serverless.yml`.
 
 ## Invocation
 
@@ -171,21 +148,3 @@ See logs for a function from CloudWatch in your terminal:
 ```bash
 yarn logs myFunctionName
 ```
-
-## Metrics
-
-See metrics for a function in your terminal:
-
-```bash
-yarn metrics myFunctionName
-```
-
-## How-to
-
-### ES2017
-
-Yep. Check out the Babel [recipe](./tree/master/babel).
-
-### Step Functions
-
-https://github.com/horike37/serverless-step-functions

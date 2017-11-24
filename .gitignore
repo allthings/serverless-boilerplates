@@ -10,3 +10,4 @@ build
 dist
 
 .nyc_output
+.DS_Store
