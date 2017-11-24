@@ -23,10 +23,11 @@ provider:
     STAGE: ${self:provider.stage}
     NODE_ENV: ${env:NODE_ENV, self:custom.defaultEnvironment}
     LOGGING: true
-    
+
 plugins:
   - serverless-webpack
-
+  - serverless-offline
+  
 functions:
   webhook:
     description: Booking key proxy thingy

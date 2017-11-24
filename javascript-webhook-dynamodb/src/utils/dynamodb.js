@@ -4,11 +4,32 @@ import { name } from '../../package.json'
 
 const TABLE_NAME_PREFIX = `${name}-`
 
-/* Enable X-Ray in production */
+/* AWS.config.dynamodb = {
+  endpoint: 'http://localhost:8000',
+  accessKeyId: 'local-dev',
+  secretAccessKey: 'local-dev',
+}
+
+const ddb = new AWS.DynamoDB({ endpoint: 'http://localhost:8000',
+accessKeyId: 'local-dev',
+secretAccessKey: 'local-dev', })
+*/
+
+/*
+  Enable X-Ray in production.
+  Connect to local DynamoDB in development.
+*/
 const ddbClient =
   process.env.STAGE !== 'development'
     ? AwsXray.captureAWSClient(new AWS.DynamoDB.DocumentClient())
-    : new AWS.DynamoDB.DocumentClient()
+    : new AWS.DynamoDB.DocumentClient({
+      service: new AWS.DynamoDB({
+        endpoint: 'http://localhost:8000',
+        region: 'local',
+        accessKeyId: 'foobar-key',
+        secretAccessKey: 'foobar-secret',
+      }),
+    })
 
 /*
   If `key` is a string, we assume the key Attribute is named "id"
@@ -23,14 +44,14 @@ function makeKey (key) {
 }
 
 export async function getItem (table, key, options = {}) {
-  const { ConsistentRead = true } = options
+  const { ConsistentRead = false } = options
 
   const params = {
     TableName: TABLE_NAME_PREFIX + table,
     Key: makeKey(key),
     ConsistentRead,
   }
-
+  console.log('params', params)
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html#get-property
   return (await ddbClient.get(params).promise()).Item
 }
@@ -43,13 +64,10 @@ export async function getItem (table, key, options = {}) {
   existing item with new item. To update/merge/patch:
   http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html#update-property
 */
-export async function putItem (table, key, options = {}) {
-  const { ConsistentRead = true } = options
-
+export async function putItem (table, Item) {
   const params = {
     TableName: TABLE_NAME_PREFIX + table,
-    Key: makeKey(key),
-    ConsistentRead,
+    Item,
   }
 
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html#put-property

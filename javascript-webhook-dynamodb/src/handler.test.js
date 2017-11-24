@@ -32,4 +32,10 @@ describe('The handler', () => {
     expect(result.headers).toBeTruthy()
     expect(result.headers['content-type']).toBeTruthy()
   })
+
+  it('returns HTTP 400 if JSON request-body is missing "id" key', async () => {
+    const result = await handlerPromise({ ...testEvent, body: '{}' })
+
+    expect(result.statusCode).toBe(400)
+  })
 })

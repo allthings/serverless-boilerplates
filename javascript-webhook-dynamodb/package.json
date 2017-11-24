@@ -13,6 +13,7 @@
     "watch:test": "jest --watch",
     "lint": "npm run lint:eslint -s",
     "lint:eslint": "eslint --cache --ext .js .",
+    "dev": "scripts/dev.sh",
     "dev:offline": "serverless offline start",
     "deploy": " yarn lint && yarn test && STAGE=staging scripts/deploy.sh",
     "invoke:local": "serverless invoke local --function",
@@ -49,6 +50,7 @@
     "prettier-eslint": "8.2.2",
     "prettier-eslint-cli": "4.4.0",
     "serverless": "1.24.1",
+    "serverless-offline": "^3.16.0",
     "serverless-webpack": "4.1.0",
     "webpack": "3.8.1"
   },
@@ -62,16 +64,26 @@
           "targets": {
             "node": "6.10"
           },
-          "include": ["es7.object.values", "es7.object.entries"]
+          "include": [
+            "es7.object.values",
+            "es7.object.entries"
+          ]
         }
       ]
     ],
-    "plugins": ["transform-object-rest-spread", "transform-object-entries"]
+    "plugins": [
+      "transform-object-rest-spread",
+      "transform-object-entries"
+    ]
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "plugins": ["import"],
-    "extends": ["airbnb-base"],
+    "plugins": [
+      "import"
+    ],
+    "extends": [
+      "airbnb-base"
+    ],
     "globals": {
       "jest": true,
       "describe": true,
@@ -81,17 +93,33 @@
     "settings": {
       "import/parser": "babel-eslint",
       "import/resolve": {
-        "moduleDirectory": ["node_modules", "src", "./"]
+        "moduleDirectory": [
+          "node_modules",
+          "src",
+          "./"
+        ]
       }
     },
     "rules": {
       "no-console": 0,
-      "semi": ["error", "never"],
-      "comma-dangle": ["error", "always-multiline"],
-      "space-before-function-paren": ["error", "always"]
+      "semi": [
+        "error",
+        "never"
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "space-before-function-paren": [
+        "error",
+        "always"
+      ]
     }
   },
-  "eslintIgnore": ["node_modules", "coverage"],
+  "eslintIgnore": [
+    "node_modules",
+    "coverage"
+  ],
   "prettier": {
     "eslintIntegration": true,
     "jsonEnable": true,
@@ -101,8 +129,15 @@
     "useTabs": false
   },
   "lint-staged": {
-    "*.{js,jsx}": ["yarn prettier:eslint", "yarn lint", "git add"],
-    "*.{json}": ["yarn prettier", "git add"]
+    "*.{js,jsx}": [
+      "yarn prettier:eslint",
+      "yarn lint",
+      "git add"
+    ],
+    "*.{json}": [
+      "yarn prettier",
+      "git add"
+    ]
   },
   "jest": {
     "bail": true,

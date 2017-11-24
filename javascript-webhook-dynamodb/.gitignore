@@ -2,6 +2,8 @@
 .DS_Store
 .build
 .serverless
+.dynamodb
+.webpack
 
 # Logs
 logs
