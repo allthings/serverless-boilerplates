@@ -1,28 +1,38 @@
-# JS Webhook DynamoDB Allthings API Boilerplate
+# JS Webhook DynamoDB Allthings-API Boilerplate
 
-```
-Invoked via API Gateway (as a webhook)
-  -> json request body
-    -> invoke lambda
-      -> write/retrieve something from dynamo db
-        -> manipulate
-          -> write/retrieve data external API
-            -> write to dynamodb
-              -> oauth
-                -> call allthings-api
-```
+Boilerplate AWS Lambda service which is invoked via API Gateway as a Webhook.
+The Request to the service must include a JSON body with the webhook payload.
+The webhook retrieves data from DynamoDB based on the JSON
+payload,modifies/updates the data with the payload, and saves it back to
+DynamoDB.
+
+# Contents
+
+1. [Installation / Setup](#installation--setup)
+1. [Local Development](#local-development)
+1. [Testing](#testing)
+1. [Deployment](#deployment)
+   1. [Staging](#staging)
+   1. [Prerelease](#prerelease)
+   1. [Production](#production)
 
 ## Installation / Setup
 
-You need Docker (for local DynamoDB)
+Docker needs to be installed (for local DynamoDB).
 
 ## Local Development
+
+Best practice is to develop locally using a TDD approach. The boilerplate
+includes sample tests on which you can build, including example of how to mock
+AWS services.
+
+Start the development environment with:
 
 ```sh
 yarn dev
 ```
 
-Test it:
+Try out the webhook with curl:
 
 ```sh
 curl -s \
@@ -31,6 +41,18 @@ curl -s \
   -d '{"id":"s1d2f34","foo":"bar"}' \
   http://localhost:3000/webhook | \
   jq
+```
+
+## Testing
+
+```sh
+yarn test
+```
+
+or
+
+```sh
+yarn watch:test
 ```
 
 ## Deployment
