@@ -29,7 +29,7 @@ log "Deploying $PROJECT to $STAGE"
 log "Deploying Serverless service"
 
 if [ -n "$ROLE" ]; then
-  aws-vault exec "$ROLE" -- serverless package -v # @TODO: replace package with deploy
+  aws-vault exec "$ROLE" -- serverless deploy -v
 else
-  serverless deploy -v # @TODO: replace package with deploy
+  serverless deploy -v
 fi

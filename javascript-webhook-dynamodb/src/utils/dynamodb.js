@@ -4,17 +4,6 @@ import { name } from '../../package.json'
 
 const TABLE_NAME_PREFIX = `${name}-`
 
-/* AWS.config.dynamodb = {
-  endpoint: 'http://localhost:8000',
-  accessKeyId: 'local-dev',
-  secretAccessKey: 'local-dev',
-}
-
-const ddb = new AWS.DynamoDB({ endpoint: 'http://localhost:8000',
-accessKeyId: 'local-dev',
-secretAccessKey: 'local-dev', })
-*/
-
 /*
   Enable X-Ray in production.
   Connect to local DynamoDB in development.
