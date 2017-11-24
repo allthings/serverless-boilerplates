@@ -50,7 +50,7 @@ resources:
     dynamoDbTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: javascript-webhook-boilerplate-things
+        TableName: ${self:custom.package.name}-things
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
