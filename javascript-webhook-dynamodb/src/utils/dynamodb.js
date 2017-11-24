@@ -8,17 +8,17 @@ const TABLE_NAME_PREFIX = `${name}-`
   Enable X-Ray in production.
   Connect to local DynamoDB in development.
 */
-const ddbClient =
-  process.env.STAGE !== 'development'
-    ? AwsXray.captureAWSClient(new AWS.DynamoDB.DocumentClient())
-    : new AWS.DynamoDB.DocumentClient({
-      service: new AWS.DynamoDB({
+const ddbClient = new AWS.DynamoDB.DocumentClient({
+  service:
+    process.env.STAGE === 'development'
+      ? new AWS.DynamoDB({
         endpoint: 'http://localhost:8000',
         region: 'local',
         accessKeyId: 'foobar-key',
         secretAccessKey: 'foobar-secret',
-      }),
-    })
+      })
+      : AwsXray.captureAWSClient(new AWS.DynamoDB()),
+})
 
 /*
   If `key` is a string, we assume the key Attribute is named "id"
@@ -40,7 +40,7 @@ export async function getItem (table, key, options = {}) {
     Key: makeKey(key),
     ConsistentRead,
   }
-  console.log('params', params)
+
   // http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html#get-property
   return (await ddbClient.get(params).promise()).Item
 }

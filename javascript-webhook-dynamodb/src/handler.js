@@ -48,6 +48,8 @@ export default handler(async (request, response) => {
     // return from λ with JSON payload appropriate for API Gateway
     return response.json(newThing)
   } catch (error) {
+    console.error('An error occurred', error)
+
     // return from λ with a 500 error
     return response.json(
       {

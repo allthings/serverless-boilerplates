@@ -18,7 +18,8 @@ DynamoDB.
 
 ## Installation / Setup
 
-Docker needs to be installed (for local DynamoDB).
+Docker needs to be installed (for local DynamoDB). `jq` is also required for
+local development.
 
 ## Local Development
 
@@ -32,7 +33,7 @@ Start the development environment with:
 yarn dev
 ```
 
-Try out the webhook with curl:
+Try out the webhook with `curl`:
 
 ```sh
 curl -s \

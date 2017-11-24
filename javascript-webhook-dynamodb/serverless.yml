@@ -1,6 +1,7 @@
 service: ${self:custom.package.name}
 
 custom:
+  awsAccountId: 799212276699
   defaultStage: development
   defaultEnvironment: development
   package: ${file(./package.json)}
@@ -16,7 +17,7 @@ provider:
   runtime: nodejs6.10
   stage: ${env:STAGE, self:custom.defaultStage}
   region: eu-west-1
-  role: arn:aws:iam::799212276699:role/aws-lambda-basic-execution-role
+  role: arn:aws:iam::${self:custom.awsAccountId}:role/aws-lambda-basic-execution-role
   deploymentBucket: allthings-lambda-deployments-${self:provider.region}
   versionFunctions: ${self:custom.versioning.${self:provider.stage}, self:custom.versioning.default} 
   environment: 
@@ -27,7 +28,7 @@ provider:
 plugins:
   - serverless-webpack
   - serverless-offline
-  
+
 functions:
   webhook:
     description: Booking key proxy thingy
@@ -42,7 +43,20 @@ functions:
 resources:
   Resources:
     # Enable X-Ray tracing on Lambda functions
-    SsrLambdaFunction:
+    WebhookLambdaFunction:
       Properties:
         TracingConfig:
           Mode: ${self:custom.xrayTracingMode}
+    dynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: javascript-webhook-boilerplate-things
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
