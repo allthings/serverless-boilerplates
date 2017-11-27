@@ -1,5 +1,5 @@
 import handler from 'alagarr'
-// @TODO: aws-xray-sdk-core  sucks. it's full of bloat.
+// @TODO: aws-xray-sdk-core sucks. it's full of bloat.
 import * as AwsXray from 'aws-xray-sdk-core'
 import * as sourceMapSupport from 'source-map-support'
 
@@ -56,7 +56,7 @@ if (STAGE !== 'development') {
   // tslint:enable
 }
 
-// @ TODO: remove type 'any'
+// @TODO: remove type 'any'
 export default handler(async (request: any, response: any) => {
   const { body } = request
 
