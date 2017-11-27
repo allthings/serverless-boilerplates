@@ -6,6 +6,29 @@ import { getItem, putItem } from './utils/dynamodb'
 // The DynamoDB table name where we're storing our items
 const THING_TABLE = 'things'
 
+const handlerConfig = {
+  enableCompression: process.env.STAGE !== 'development',
+  headers: {
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+  },
+  cspPolicies: {
+    'child-src': '*',
+    'connect-src': '*',
+    'default-src': "'self'",
+    'font-src': `'self' https://fonts.gstatic.com https://netdna.bootstrapcdn.com/font-awesome/ ${
+      process.env.CDN_HOST_URL
+    }`,
+    'frame-ancestors': "'self'",
+    'frame-src': '*',
+    'img-src': `* data: blob: ${process.env.CDN_HOST_URL}`,
+    'report-uri': '/csp-reports',
+    'script-src': `'self' 'unsafe-inline' 'unsafe-eval' https://*.google-analytics.com https://*.google.com https://*.gstatic.com https://*.mxpnl.com/ https://mixpanel.com ${
+      process.env.CDN_HOST_URL
+    }`,
+    'style-src': `'self' 'unsafe-inline' https://fonts.googleapis.com ${process.env.CDN_HOST_URL}`,
+  },
+}
+
 /*
   Enable X-Ray in production
   See the results here:
@@ -58,4 +81,4 @@ export default handler(async (request, response) => {
       500
     )
   }
-})
+}, handlerConfig)
