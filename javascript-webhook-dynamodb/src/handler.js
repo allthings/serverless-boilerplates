@@ -60,7 +60,6 @@ export default handler(async (request, response) => {
   const { id } = webhookPayload
 
   if (SUPER_SECRET !== process.env.SUPER_SECRET) {
-    // tslint:disable-next-line:no-expression-statement no-console
     console.log('SUPER_SECRET was decrypted.')
   }
 

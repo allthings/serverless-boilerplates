@@ -62,6 +62,8 @@ export default handler(async (request: any, response: any) => {
   const { body } = request
 
   if (SUPER_SECRET !== process.env.SUPER_SECRET) {
+    // The rules are only disabled because this is an example and
+    // console.log-ing makes for a simple example. Don't copy me.
     // tslint:disable-next-line:no-expression-statement no-console
     console.log('SUPER_SECRET was decrypted.')
   }
