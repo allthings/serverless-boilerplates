@@ -73,8 +73,9 @@ import kmsDecrypt from './utils/kms'
 
 if (FOR_EXAMPLE_IN_DEVELOPMENT) {
   const SUPER_SECRET = 'super secret string, unencrypted'
-} else if (FOR EXAMPLE_IN_PRODUCTION) {
-  const SUPER_SECRET = 'AQECAHj6Y8swFFZ8sg2A5LDqzMqXTngYQ4IY+YtXTBbxtG0Z0wAAAHEwbwYJKoZIhvcNAQcGoGIwYAIBADBbBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCK07wQTVbhb+NpagQIBEIAutBE1E01odcJOy35adiilXVPt7FgnYI2Bb1etip5pZg0kNh2ksFl5CyPlQG7HuQ=='
+} else if (FOR_EXAMPLE_IN_PRODUCTION) {
+  const SUPER_SECRET =
+    'AQECAHj6Y8swFFZ8sg2A5LDqzMqXTngYQ4IY+YtXTBbxtG0Z0wAAAHEwbwYJKoZIhvcNAQcGoGIwYAIBADBbBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCK07wQTVbhb+NpagQIBEIAutBE1E01odcJOy35adiilXVPt7FgnYI2Bb1etip5pZg0kNh2ksFl5CyPlQG7HuQ=='
 }
 
 export default handler(async (request: any, response: any) => {
