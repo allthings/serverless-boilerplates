@@ -65,7 +65,7 @@ To decrypt cyphertext, use the `kmsDecrypt()` utility in `~/src/utils/kms.ts`. B
 strings passed to `kmsDecrypt()` will get decrypted while strings which are not base64 encoded (and
 therefore likely not encrypted) will simply be returned as-is from `kmsDecrypt()`. `kmsDecrypt()`
 also accepts an array of strings, which are decrypted in parallel. To improve performance across
-Lambda invocations, encrypted strings are cached for you. To decrypt cyphertext, in your code:
+Lambda invocations, decrypted strings are cached for you. To decrypt cyphertext, in your code:
 
 ```typescript
 import handler from 'alagarr'
