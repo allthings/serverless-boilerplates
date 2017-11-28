@@ -17,9 +17,7 @@ async function kmsDecrypt(ciphertext: string): Promise<string> {
   const result = await kms.decrypt(params).promise()
   const decrypted = result.Plaintext ? result.Plaintext.toString() : ciphertext
 
-  decryptedDictionary.set(ciphertext, decrypted)
-
-  return decrypted
+  return decryptedDictionary.set(ciphertext, decrypted) && decrypted
 }
 
 export default async function decrypt(
