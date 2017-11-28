@@ -7,8 +7,7 @@
   "config": {
     "deployProfile": "allthings-deploy",
     "awsAccountId": "000000000000",
-    "//awsKmsKeyArn": "arn:aws:kms:eu-west-1:000000000000:key/67fakse7-5e4f-48f1-9949-95fake73bb7",
-    "awsKmsKeyArn": "arn:aws:kms:eu-west-1:799212276699:key/675b0917-5e4f-48f1-9949-9578b6d73bb7",
+    "awsKmsKeyArn": "arn:aws:kms:eu-west-1:000000000000:key/67fakse7-5e4f-48f1-9949-95fake73bb7",
     "awsRegion": "eu-west-1"
   },
   "scripts": {
