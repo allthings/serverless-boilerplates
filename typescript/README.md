@@ -15,7 +15,9 @@ Typescript boilerplate AWS Lambda service which is invoked via API Gateway.
 
 ## Installation / Setup
 
-Docker needs to be installed (for local DynamoDB). `jq` is also required for local development.
+```sh
+yarn install
+```
 
 ## Local Development
 
