@@ -7,24 +7,27 @@
   "config": {
     "deployProfile": "allthings-deploy",
     "awsAccountId": "000000000000",
-    "awsKmsKeyArn": "arn:aws:kms:eu-west-1:000000000000:key/67fakse7-5e4f-48f1-9949-95fake73bb7"
+    "//awsKmsKeyArn": "arn:aws:kms:eu-west-1:000000000000:key/67fakse7-5e4f-48f1-9949-95fake73bb7",
+    "awsKmsKeyArn": "arn:aws:kms:eu-west-1:799212276699:key/675b0917-5e4f-48f1-9949-9578b6d73bb7",
+    "awsRegion": "eu-west-1"
   },
   "scripts": {
+    "build": "npm run clean && tsc -d",
     "clean": "rimraf dist",
-    "pretest": "npm run clean",
-    "test": "jest",
-    "watch:test": "jest --watch",
-    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "deploy": " yarn lint && yarn test && STAGE=staging scripts/deploy.sh",
     "dev": "scripts/dev.sh",
     "dev:offline": "serverless offline start",
-    "build": "npm run clean && tsc -d",
-    "deploy": " yarn lint && yarn test && STAGE=staging scripts/deploy.sh",
+    "encrypt-string": "scripts/kms-encrypt.sh",
     "invoke:local": "serverless invoke local --function",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
     "precommit": "lint-staged",
+    "pretest": "npm run clean",
     "prettier": "prettier --write",
     "preversion": "yarn security-check && yarn lint && yarn test",
     "postversion": "git push --tags origin HEAD && scripts/deploy.sh",
     "security-check": "nsp",
+    "test": "jest",
+    "watch:test": "jest --watch",
     "upgrade-dependencies": "yarn upgrade-interactive --latest --exact"
   },
   "repository": {

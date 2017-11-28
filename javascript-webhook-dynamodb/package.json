@@ -6,7 +6,10 @@
   "license": "MIT",
   "main": "src/handler.js",
   "config": {
-    "deployProfile": "allthings-deploy"
+    "deployProfile": "allthings-deploy",
+    "awsAccountId": "000000000000",
+    "awsKmsKeyArn": "arn:aws:kms:eu-west-1:000000000000:key/67fakse7-5e4f-48f1-9949-95fake73bb7",
+    "awsRegion": "eu-west-1"
   },
   "scripts": {
     "test": "jest",

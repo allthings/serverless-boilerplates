@@ -4,9 +4,8 @@ import * as AwsXray from 'aws-xray-sdk-core'
 import 'source-map-support/register'
 import kmsDecrypt from './utils/kms'
 
-const STAGE = process.env.STAGE
+const { STAGE = 'development', CDN_HOST_URL = '' } = process.env
 const IS_PRODUCTION = STAGE !== 'development'
-const CDN_HOST_URL = process.env.CDN_HOST_URL || ''
 
 const handlerConfig = {
   cspPolicies: {
@@ -62,5 +61,10 @@ export default handler(async (request: any, response: any) => {
 
   const { body } = request
 
-  return response.json({ message: 'Hi.', body, SUPER_SECRET })
+  if (SUPER_SECRET !== process.env.SUPER_SECRET) {
+    // tslint:disable-next-line:no-expression-statement no-console
+    console.log('SUPER_SECRET was decrypted.')
+  }
+
+  return response.json({ message: 'Hi.', body })
 }, handlerConfig)

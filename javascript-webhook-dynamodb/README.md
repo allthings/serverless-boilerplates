@@ -11,6 +11,7 @@ DynamoDB.
 1. [Installation / Setup](#installation--setup)
 1. [Local Development](#local-development)
 1. [Testing](#testing)
+1. [Encrypting Secrets](#encrypting-secrets)
 1. [Deployment](#deployment)
    1. [Staging](#staging)
    1. [Prerelease](#prerelease)
@@ -55,6 +56,10 @@ or
 ```sh
 yarn watch:test
 ```
+
+## Encrypting Secrets
+
+Please see the guide/instructions in the [Typescript boilerplate](/typescript/).
 
 ## Deployment
 
