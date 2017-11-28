@@ -35,6 +35,8 @@ cleanup() {
   kill "$CONTAINER"
 }
 
+echo "Starting $PROJECT_NAME in $STAGE stage.."
+
 mkdir -p "$DDB_DATA_PATH"
 
 docker run \

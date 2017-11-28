@@ -29,33 +29,23 @@ plugins:
   - serverless-offline
 
 functions:
-  webhook:
-    description: Booking key proxy thingy
+  boilerplateHandler:
+    description: Boilerplate Handler
     memorySize: 512
     timeout: 30
     handler: src/handler.default
     events:
       - http:
-          path: /webhook
-          method: POST
+          path: /
+          method: GET
+      - http:
+          path: /{route+}
+          method: GET
 
 resources:
   Resources:
     # Enable X-Ray tracing on Lambda functions
-    WebhookLambdaFunction:
+    BoilerplateHandlerLambdaFunction:
       Properties:
         TracingConfig:
           Mode: ${self:custom.xrayTracingMode}
-    dynamoDbTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: ${self:custom.package.name}-things
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 5

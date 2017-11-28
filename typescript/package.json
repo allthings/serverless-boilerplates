@@ -1,0 +1,100 @@
+{
+  "name": "serverless-boilerplates-typescript",
+  "version": "1.0.0",
+  "description": " AWS Lambda/API Gateway service to sync project translations from the POEditor API and stick them into S3 ",
+  "main": "src/handler.js",
+  "config": {
+    "deployProfile": "allthings-deploy"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "pretest": "npm run clean",
+    "test": "jest",
+    "watch:test": "jest --watch",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "dev": "scripts/dev.sh",
+    "dev:offline": "serverless offline start",
+    "build": "npm run clean && tsc -d",
+    "deploy": " yarn lint && yarn test && STAGE=staging scripts/deploy.sh",
+    "invoke:local": "serverless invoke local --function",
+    "precommit": "lint-staged",
+    "prettier": "prettier --write",
+    "preversion": "yarn security-check && yarn lint && yarn test",
+    "postversion": "git push --tags origin HEAD && scripts/deploy.sh",
+    "security-check": "nsp",
+    "upgrade-dependencies": "yarn upgrade-interactive --latest --exact"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allthings/serverless-boilerplates.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allthings/serverless-boilerplates/issues"
+  },
+  "homepage": "https://github.com/allthings/serverless-boilerplates/blob/master/typescript",
+  "dependencies": {
+    "alagarr": "1.0.0-1",
+    "aws-xray-sdk-core": "1.1.6",
+    "source-map-support": "0.5.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "0.0.21",
+    "@types/jest": "21.1.8",
+    "@types/node": "8.0.53",
+    "@types/source-map-support": "0.4.0",
+    "fork-ts-checker-webpack-plugin": "0.2.9",
+    "happypack": "4.0.0",
+    "husky": "0.14.3",
+    "jest": "21.2.1",
+    "json-loader": "0.5.7",
+    "lint-staged": "5.0.0",
+    "nsp": "3.1.0",
+    "prettier": "1.8.2",
+    "rimraf": "2.6.2",
+    "serverless": "1.24.1",
+    "serverless-offline": "^3.16.0",
+    "serverless-webpack": "4.1.0",
+    "ts-jest": "21.2.3",
+    "ts-loader": "^3.1.1",
+    "tslint": "5.8.0",
+    "tslint-config-prettier": "1.6.0",
+    "tslint-immutable": "4.4.0",
+    "typescript": "2.6.1",
+    "webpack": "3.8.1"
+  },
+  "prettier": {
+    "eslintIntegration": false,
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "useTabs": false
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "yarn prettier",
+      "yarn lint",
+      "git add"
+    ],
+    "*.{json}": [
+      "yarn prettier",
+      "git add"
+    ]
+  },
+  "jest": {
+    "bail": true,
+    "collectCoverage": true,
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  }
+}
