@@ -86,6 +86,19 @@ export default handler(async (request: any, response: any) => {
 })
 ```
 
+To deploy secrets as part of an environment variable, add it to `serverless.yml` like so:
+
+```yaml
+service:
+  name: ${self:custom.package.name}
+  awsKmsKeyArn: ${self:custom.package.name.awsKmsKeyArn} # use a custom kms key, defined in package.json
+
+provider:
+  name: aws
+  environment:
+    SUPER_SECRET: AQECAHj6Y8swFFZ8sg2A5LDqzMqXTngYQ4IY+YtXTBbxtG0Z0wAAAHEwbwYJKoZIhvcNAQcGoGIwYAIBADBbBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDCK07wQTVbhb+NpagQIBEIAutBE1E01odcJOy35adiilXVPt7FgnYI2Bb1etip5pZg0kNh2ksFl5CyPlQG7HuQ==
+```
+
 ## Deployment
 
 ### Staging
