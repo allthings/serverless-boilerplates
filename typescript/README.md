@@ -93,7 +93,7 @@ To deploy secrets as part of an environment variable, add it to `serverless.yml`
 ```yaml
 service:
   name: ${self:custom.package.name}
-  awsKmsKeyArn: ${self:custom.package.name.awsKmsKeyArn} # use a custom kms key, defined in package.json
+  awsKmsKeyArn: ${self:custom.package.config.awsKmsKeyArn} # use a custom kms key, defined in package.json
 
 provider:
   name: aws
