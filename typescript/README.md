@@ -66,6 +66,7 @@ also accepts an array of strings, which are decrypted in parallel. To improve pe
 Lambda invocations, ecrypted strings are cached for you. To decrypt cyphertext, in your code:
 
 ```typescript
+import handler from 'alagarr'
 import kmsDecrypt from './utils/kms'
 
 if (FOR_EXAMPLE_IN_DEVELOPMENT) {
