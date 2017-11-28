@@ -38,7 +38,7 @@ const handlerConfig = {
     ].join(' '),
     'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com', CDN_HOST_URL].join(' '),
   },
-  enableCompression: STAGE !== 'development',
+  enableCompression: IS_PRODUCTION,
   headers: {
     'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
   },
@@ -96,7 +96,7 @@ export default handler(async (request, response) => {
     // return from λ with a 500 error
     return response.json(
       {
-        error: process.env.STAGE === 'development' ? error : 'Internal server error occurred',
+        error: !IS_PRODUCTION ? error : 'Internal server error occurred',
       },
       500
     )

@@ -37,7 +37,7 @@ const handlerConfig = {
       ' '
     ),
   },
-  enableCompression: STAGE !== 'development',
+  enableCompression: IS_PRODUCTION,
   headers: {
     'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
   },
