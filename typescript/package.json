@@ -1,8 +1,7 @@
 {
   "name": "serverless-boilerplates-typescript",
   "version": "1.0.0",
-  "description":
-    " AWS Lambda/API Gateway service to sync project translations from the POEditor API and stick them into S3 ",
+  "description": " AWS Lambda/API Gateway service to sync project translations from the POEditor API and stick them into S3 ",
   "main": "src/handler.js",
   "config": {
     "deployProfile": "allthings-deploy"
@@ -42,6 +41,7 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "0.0.21",
+    "@types/jest": "21.1.8",
     "@types/node": "8.0.53",
     "@types/source-map-support": "0.4.0",
     "fork-ts-checker-webpack-plugin": "0.2.9",
@@ -73,8 +73,15 @@
     "useTabs": false
   },
   "lint-staged": {
-    "*.{ts,tsx}": ["yarn prettier", "yarn lint", "git add"],
-    "*.{json}": ["yarn prettier", "git add"]
+    "*.{ts,tsx}": [
+      "yarn prettier",
+      "yarn lint",
+      "git add"
+    ],
+    "*.{json}": [
+      "yarn prettier",
+      "git add"
+    ]
   },
   "jest": {
     "bail": true,
@@ -83,6 +90,11 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }

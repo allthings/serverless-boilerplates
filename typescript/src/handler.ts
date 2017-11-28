@@ -1,9 +1,7 @@
 import handler from 'alagarr'
 // @TODO: aws-xray-sdk-core sucks. it's full of bloat.
 import * as AwsXray from 'aws-xray-sdk-core'
-import * as sourceMapSupport from 'source-map-support'
-
-sourceMapSupport.install() // tslint:disable-line no-expression-statement
+import 'source-map-support/register'
 
 const STAGE = process.env.STAGE
 const CDN_HOST_URL = process.env.CDN_HOST_URL || ''
