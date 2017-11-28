@@ -1,7 +1,9 @@
-service: ${self:custom.package.name}
+service: 
+  name: ${self:custom.package.name}
+  # awsKmsKeyArn: ${self:custom.package.name.awsKmsKeyArn} # use a custom kms key
 
 custom:
-  awsAccountId: 799212276699
+  awsAccountId: ${self:custom.package.name.awsAccountId}
   defaultStage: development
   defaultEnvironment: development
   package: ${file(./package.json)}

@@ -2,8 +2,10 @@ import handler from 'alagarr'
 // @TODO: aws-xray-sdk-core sucks. it's full of bloat.
 import * as AwsXray from 'aws-xray-sdk-core'
 import 'source-map-support/register'
+import kmsDecrypt from './utils/kms'
 
 const STAGE = process.env.STAGE
+const IS_PRODUCTION = STAGE !== 'development'
 const CDN_HOST_URL = process.env.CDN_HOST_URL || ''
 
 const handlerConfig = {
@@ -47,7 +49,7 @@ const handlerConfig = {
   See the results here:
   https://console.aws.amazon.com/xray/home#/service-map
 */
-if (STAGE !== 'development') {
+if (IS_PRODUCTION) {
   // tslint:disable:no-expression-statement no-var-requires
   AwsXray.captureHTTPsGlobal(require('http'))
   AwsXray.captureHTTPsGlobal(require('https'))
@@ -56,7 +58,9 @@ if (STAGE !== 'development') {
 
 // @TODO: remove type 'any'
 export default handler(async (request: any, response: any) => {
+  const SUPER_SECRET = await kmsDecrypt(process.env.SUPER_SECRET || '') // result gets cached :-)
+
   const { body } = request
 
-  return response.json({ message: 'Hi.', body })
+  return response.json({ message: 'Hi.', body, SUPER_SECRET })
 }, handlerConfig)
