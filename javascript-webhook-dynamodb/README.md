@@ -59,7 +59,8 @@ yarn watch:test
 
 ## Encrypting Secrets
 
-Please see the guide/instructions in the [Typescript boilerplate](/typescript/).
+Please see the guide/instructions in the
+[Typescript boilerplate](/typescript/#encrypting-secrets).
 
 ## Deployment
 
