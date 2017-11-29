@@ -1,8 +1,7 @@
 {
   "name": "serverless-boilerplates-typescript",
   "version": "1.0.0",
-  "description":
-    " AWS Lambda/API Gateway service to sync project translations from the POEditor API and stick them into S3 ",
+  "description": " AWS Lambda/API Gateway service to sync project translations from the POEditor API and stick them into S3 ",
   "main": "src/handler.js",
   "config": {
     "deployProfile": "allthings-deploy",
@@ -41,7 +40,7 @@
   "homepage": "https://github.com/allthings/serverless-boilerplates/blob/master/typescript",
   "dependencies": {
     "alagarr": "1.0.0-1",
-    "aws-sdk": "2.157.0",
+    "aws-sdk": "2.158.0",
     "aws-xray-sdk-core": "1.1.6",
     "source-map-support": "0.5.0"
   },
@@ -67,7 +66,7 @@
     "tslint": "5.8.0",
     "tslint-config-prettier": "1.6.0",
     "tslint-immutable": "4.4.0",
-    "typescript": "2.6.1",
+    "typescript": "2.6.2",
     "webpack": "3.8.1"
   },
   "prettier": {
@@ -79,8 +78,15 @@
     "useTabs": false
   },
   "lint-staged": {
-    "*.{ts,tsx}": ["yarn prettier", "yarn lint", "git add"],
-    "*.{json}": ["yarn prettier", "git add"]
+    "*.{ts,tsx}": [
+      "yarn prettier",
+      "yarn lint",
+      "git add"
+    ],
+    "*.{json}": [
+      "yarn prettier",
+      "git add"
+    ]
   },
   "jest": {
     "bail": true,
@@ -89,6 +95,11 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }
