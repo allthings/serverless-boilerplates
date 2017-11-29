@@ -24,6 +24,19 @@ log() {
   echo "${background}${bold}  --- ${white}${1} ---  ${uncolor}${normal}"
 }
 
+# Iterate over the dependency requirements:
+while IFS= read -r REQUIREMENT; do
+  # Skip empty lines and lines starting with a hash (#):
+  [ -z "$REQUIREMENT" ] || [ "${REQUIREMENT#\#}" != "$REQUIREMENT" ] && continue
+  if ! command -v "$REQUIREMENT" > /dev/null 2>&1; then
+    echo "\"$REQUIREMENT\" is not available in PATH" >&2
+    echo "Please install \"$REQUIREMENT\" (or try yarn install)" >&2
+    exit 1
+  fi
+done << EOL
+serverless
+EOL
+
 log "Deploying $PROJECT to $STAGE"
 
 log "Deploying Serverless service"
