@@ -17,7 +17,14 @@ async function kmsDecrypt(ciphertext: string): Promise<string> {
   const result = await kms.decrypt(params).promise()
   const decrypted = result.Plaintext ? result.Plaintext.toString() : ciphertext
 
-  return decryptedDictionary.set(ciphertext, decrypted) && decrypted
+  // Don't know of any other way to Map.set() without
+  // doing an expression-statement.. Could test for
+  // success, but .set() always returns the Map, so it'd
+  // be a useless test just to satisfy the linter, which is dumb.
+  // tslint:disable no-expression-statement
+  decryptedDictionary.set(ciphertext, decrypted)
+
+  return decrypted
 }
 
 export default async function decrypt(
