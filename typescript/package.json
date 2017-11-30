@@ -1,7 +1,8 @@
 {
   "name": "serverless-boilerplates-typescript",
   "version": "1.0.0",
-  "description": " AWS Lambda/API Gateway service to sync project translations from the POEditor API and stick them into S3 ",
+  "description":
+    " AWS Lambda/API Gateway service to sync project translations from the POEditor API and stick them into S3 ",
   "main": "src/handler.js",
   "config": {
     "deployProfile": "allthings-deploy",
@@ -12,7 +13,8 @@
   "scripts": {
     "build": "npm run clean && tsc -d",
     "clean": "rimraf dist",
-    "deploy": " yarn lint && yarn test && STAGE=staging scripts/deploy.sh",
+    "predeploy": "yarn lint && yarn test",
+    "deploy": "STAGE=staging scripts/deploy.sh",
     "dev": "scripts/dev.sh",
     "dev:offline": "serverless offline start",
     "encrypt-string": "scripts/kms-encrypt.sh",
@@ -78,15 +80,8 @@
     "useTabs": false
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "yarn prettier",
-      "yarn lint",
-      "git add"
-    ],
-    "*.{json}": [
-      "yarn prettier",
-      "git add"
-    ]
+    "*.{ts,tsx}": ["yarn prettier", "yarn lint", "git add"],
+    "*.{json}": ["yarn prettier", "git add"]
   },
   "jest": {
     "bail": true,
@@ -95,11 +90,6 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "json"]
   }
 }

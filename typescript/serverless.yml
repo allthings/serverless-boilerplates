@@ -1,6 +1,6 @@
 service: 
   name: ${self:custom.package.name}
-  # awsKmsKeyArn: ${self:custom.package.config.awsKmsKeyArn} # use a custom kms key
+  # awsKmsKeyArn: ${env:AWS_KMS_KEY_ARN, self:custom.package.config.awsKmsKeyArn} # use a custom kms key
 
 custom:
   awsAccountId: ${env:AWS_ACCOUNT_ID, self:custom.package.config.awsAccountId}
