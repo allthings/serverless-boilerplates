@@ -49,6 +49,7 @@ module.exports = {
     }),
   ],
   resolve: {
+    extensions: ['.ts', '.js'],
     symlinks: true,
   },
   target: 'node',

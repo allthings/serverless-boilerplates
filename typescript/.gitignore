@@ -3,6 +3,7 @@
 .build
 .serverless
 .vscode
+.webpack
 dist
 
 # Logs
