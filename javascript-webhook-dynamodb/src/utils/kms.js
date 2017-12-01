@@ -7,7 +7,7 @@ const isBase64 = /^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-
 async function kmsDecrypt (ciphertext) {
   if (decryptedDictionary.has(ciphertext)) {
     return decryptedDictionary.get(ciphertext)
-  } else if (!isBase64.test(ciphertext)) {
+  } else if (!isBase64.test(ciphertext) || process.env.DISABLE_KMS_DECRYPTION) {
     // useful in development mode.
     // Pass an unencrypted string, get back the same string.
     return ciphertext
