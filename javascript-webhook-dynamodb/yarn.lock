@@ -404,7 +404,13 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-aws-sdk-mock@^1.7.0:
+aws-kms-thingy@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/aws-kms-thingy/-/aws-kms-thingy-1.0.3.tgz#12f7405648bdf1ca4084883ea492b0f50ba2a77d"
+  dependencies:
+    aws-sdk "2.197.0"
+
+aws-sdk-mock@1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/aws-sdk-mock/-/aws-sdk-mock-1.7.0.tgz#7698b3ba82f493f71ff060ae2123cd0806ad8676"
   dependencies:
@@ -412,12 +418,26 @@ aws-sdk-mock@^1.7.0:
     sinon "^1.17.3"
     traverse "^0.6.6"
 
-aws-sdk@^2.156.0, aws-sdk@^2.3.0, aws-sdk@^2.75.0:
+aws-sdk@2.156.0, aws-sdk@^2.3.0, aws-sdk@^2.75.0:
   version "2.156.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.156.0.tgz#409c06f7051d58320cb389a024ca7b61ce31f136"
   dependencies:
     buffer "4.9.1"
     crypto-browserify "1.0.9"
+    events "^1.1.1"
+    jmespath "0.15.0"
+    querystring "0.2.0"
+    sax "1.2.1"
+    url "0.10.3"
+    uuid "3.1.0"
+    xml2js "0.4.17"
+    xmlbuilder "4.2.1"
+
+aws-sdk@2.197.0:
+  version "2.197.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.197.0.tgz#986e3749f4d1944c6253d7824aa8035efb1db0e4"
+  dependencies:
+    buffer "4.9.1"
     events "^1.1.1"
     jmespath "0.15.0"
     querystring "0.2.0"
@@ -435,7 +455,7 @@ aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
 
-aws-xray-sdk-core@^1.1.6:
+aws-xray-sdk-core@1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/aws-xray-sdk-core/-/aws-xray-sdk-core-1.1.6.tgz#0e30a598916cad6c04c3ad00cd8cd8ab60283405"
   dependencies:
@@ -5169,7 +5189,7 @@ semver@~5.0.1:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.0.3.tgz#77466de589cd5d3c95f138aa78bc569a3cb5d27a"
 
-serverless-offline@^3.16.0:
+serverless-offline@3.16.0:
   version "3.16.0"
   resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-3.16.0.tgz#1baa10a57e0e38c7bea2914ec846d79d04daf136"
   dependencies:

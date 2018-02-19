@@ -1,7 +1,7 @@
 import 'source-map-support/register'
 import handler from 'alagarr'
 import AwsXray from 'aws-xray-sdk-core'
-import kmsDecrypt from './utils/kms'
+import { decrypt as kmsDecrypt } from 'aws-kms-thingy'
 import { getItem, putItem } from './utils/dynamodb'
 
 // The DynamoDB table name where we're storing our items
