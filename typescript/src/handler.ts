@@ -1,8 +1,8 @@
 import handler from 'alagarr'
+import { decrypt as kmsDecrypt } from 'aws-kms-thingy'
 // @TODO: aws-xray-sdk-core sucks. it's full of bloat.
 import * as AwsXray from 'aws-xray-sdk-core'
 import 'source-map-support/register'
-import kmsDecrypt from './utils/kms'
 
 const { STAGE = 'development', CDN_HOST_URL = '' } = process.env
 const IS_PRODUCTION = STAGE !== 'development'

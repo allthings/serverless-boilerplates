@@ -1,8 +1,7 @@
 {
   "name": "serverless-boilerplates-typescript",
   "version": "1.0.0",
-  "description":
-    " AWS Lambda/API Gateway service to sync project translations from the POEditor API and stick them into S3 ",
+  "description": " AWS Lambda/API Gateway service to sync project translations from the POEditor API and stick them into S3 ",
   "main": "src/handler.js",
   "config": {
     "deployProfile": "allthings-deploy",
@@ -28,6 +27,7 @@
     "security-check": "nsp",
     "test": "jest",
     "watch:test": "jest --watch",
+    "kms-encrypt": "aws-vault exec \"$npm_package_config_deployProfile\" -- aws-kms-thingy encrypt",
     "upgrade-dependencies": "yarn upgrade-interactive --latest --exact"
   },
   "repository": {
@@ -41,8 +41,9 @@
   },
   "homepage": "https://github.com/allthings/serverless-boilerplates/blob/master/typescript",
   "dependencies": {
-    "alagarr": "1.0.0-1",
-    "aws-sdk": "2.158.0",
+    "alagarr": "1.0.0-22",
+    "aws-kms-thingy": "1.0.3",
+    "aws-sdk": "2.197.0",
     "aws-xray-sdk-core": "1.1.6",
     "source-map-support": "0.5.0"
   },
@@ -80,8 +81,15 @@
     "useTabs": false
   },
   "lint-staged": {
-    "*.{ts,tsx}": ["yarn prettier", "yarn lint", "git add"],
-    "*.{json}": ["yarn prettier", "git add"]
+    "*.{ts,tsx}": [
+      "yarn prettier",
+      "yarn lint",
+      "git add"
+    ],
+    "*.{json}": [
+      "yarn prettier",
+      "git add"
+    ]
   },
   "jest": {
     "bail": true,
@@ -91,6 +99,11 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": ["ts", "tsx", "js", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
   }
 }
