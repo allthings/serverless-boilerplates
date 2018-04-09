@@ -51,3 +51,12 @@ resources:
       Properties:
         TracingConfig:
           Mode: ${self:custom.xrayTracingMode}
+          
+    # Limit CloudWatch log retention to 3 months
+    # Under the EU GDPR (General Data Protection Regulation) we’re not allowed to
+    # collect any personal data without consent. There are exceptions for security
+    # and audit reasons, ours being that we keep it for audit reasons.
+    BoilerplateHandlerLogGroup:
+      Type: AWS::Logs::LogGroup
+      Properties:
+        RetentionInDays: 90
